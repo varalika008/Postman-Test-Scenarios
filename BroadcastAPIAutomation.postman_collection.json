@@ -1,0 +1,1933 @@
+{
+	"info": {
+		"_postman_id": "33dda898-b090-4739-9ba0-9ff2799d1caa",
+		"name": "BroadcastAPIAutomation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13519785"
+	},
+	"item": [
+		{
+			"name": "CreateNew  _Create Broadcast",
+			"item": [
+				{
+					"name": "Get Broadcasts List",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const ran = Math.floor((Math.random()*100 +1));",
+									"pm.globals.set(\"ran\", ran);",
+									"",
+									"const str = \"&lt; name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 5000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"broadcastId\",jsonData.broadcastId,);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{base64}}\",\n    \"description\": \"{{base64}}\",\n    \"userId\": 1,\n    \"status\": \"Draft\",\n    \"email\": 0,\n    \"text\": 0,\n    \"voice\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts"
+							],
+							"query": [
+								{
+									"key": "str",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Broadcast",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const ran = Math.floor((Math.random()*100 +1));",
+									"pm.globals.set(\"ran\", ran);",
+									"",
+									"const str = \"&lt; name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 5000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"broadcastId\",jsonData.broadcastId,);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{base64}}\",\n    \"description\": \"{{base64}}\",\n    \"userId\": 1,\n    \"status\": \"Draft\",\n    \"email\": 0,\n    \"text\": 0,\n    \"voice\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts"
+							],
+							"query": [
+								{
+									"key": "str",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the newly created Broadcast",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 5000s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+									"});",
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the newly created Broadcast",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const str = \"< Sample Broadcast&\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 6000s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(6000);",
+									"});",
+									"pm.test(\"Successful PATCH request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{base64}}\",\n    \"description\": \"{{base64}}\",\n    \"userId\": 1,\n    \"status\": \"Draft\",\n    \"email\": 1,\n    \"text\": true,\n    \"voice\": 0\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the newly updated Broadcast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 5000s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+									"});",
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Broadcast",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const ID = Math.floor((Math.random()*100 +1));",
+									"pm.globals.set(\"ID\", ID);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 3000s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+									"});",
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create New _Template",
+			"item": [
+				{
+					"name": "Get Template list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/templates",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Template",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const str = \"&< Sample\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"templateId\",jsonData.templateId,);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"{{base64}}\",\"favorite\":true,\"text\":{\"message\":\"{{base64}}\"}}"
+						},
+						"url": {
+							"raw": "{{URL}}/templates",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful PATCH request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const str = \"< Sample Broadcast&\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"{{base64}}\",\"favorite\":true,\"text\":{\"message\":\"{{base64}}\"}}"
+						},
+						"url": {
+							"raw": "{{URL}}/templates/{{templateId}}?modality=all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"templates",
+								"{{templateId}}"
+							],
+							"query": [
+								{
+									"key": "modality",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Updated Template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/templates/{{templateId}}?modality=all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"templates",
+								"{{templateId}}"
+							],
+							"query": [
+								{
+									"key": "modality",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Created template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/templates/{{templateId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"templates",
+								"{{templateId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EmailModality",
+			"item": [
+				{
+					"name": "Create Email",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":{\"subject\":\"{{base64}}\",\"preview\":\"{{base64}}\",\"message\":\"{{base64}}\"},\"userId\":1}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}/message",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditEmailMessage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const str = \"< Sample Broadcast&\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful PATCH request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":{\"subject\":\"{{base64}}\",\"preview\":\"{{base64}}\",\"message\":\"{{base64}}\"},\"userId\":1}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}/message/{{messageId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}",
+								"message",
+								"{{messageId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ImageUpload",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 6000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(6000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"image\":\"{{image}}\",\"fileName\":\"mjjj.jpg\"}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/image",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Email Message",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"< &name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)",
+									"",
+									"const uuid = _.random(1,5)",
+									" let email='varalika.agarwal'+uuid+'@quovantis.com'",
+									" pm.environment.set('email',email)",
+									"console.log(email)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"modality\":\"email\",\"destination\":\"{{email}}\",\"subject\":\"{{base64}}\",\"preview\":\"{{base64}}\",\"message\":\"{{base64}}\"}\n"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/test",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TextModality",
+			"item": [
+				{
+					"name": "CreateTextMessage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"<\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)",
+									"const ran = Math.floor((Math.random()*100 +1111111111));",
+									"pm.globals.set(\"ran\", ran);",
+									"console.log(ran)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":{\"message\":\"{{base64}}\"},\"userId\":1}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}/message",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditTextMessage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const str = \"< Sample Broadcast&\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful PATCH request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":{\"message\":\"{{base64}}\"},\"userId\":1}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}/message/{{messageId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}",
+								"message",
+								"{{messageId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Text Message",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"< &name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)",
+									"const ran = Math.floor((Math.random()*100 +1111111111));",
+									"pm.globals.set(\"ran\", ran);",
+									"console.log(ran)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"modality\":\"text\",\"destination\":\"{{ran}}\",\"message\":\"{{base64}}\"}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/test",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VoiceModality",
+			"item": [
+				{
+					"name": "CreateVoiceMessage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"<\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)",
+									"const ran = Math.floor((Math.random()*100 +1111111111));",
+									"pm.globals.set(\"ran\", ran);",
+									"console.log(ran)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"voice\":{\"message\":\"{{base64}}\"},\"userId\":1}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}/message",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditVoiceMessage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const str = \"< Sample Broadcast&\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 4000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);",
+									"});",
+									"pm.test(\"Successful PATCH request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Test\",function(){",
+									"    var jsonData =pm.response.json()",
+									"pm.globals.set(\"messageId\",jsonData.messageId,);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"voice\":{\"message\":\"{{base64}}\"},\"userId\":1}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/{{broadcastId}}/message/{{messageId}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"{{broadcastId}}",
+								"message",
+								"{{messageId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETVoiceMessage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"< &name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)",
+									"const ran = Math.floor((Math.random()*100 +1111111111));",
+									"pm.globals.set(\"ran\", ran);",
+									"console.log(ran)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 45000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(45000);",
+									"});",
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"modality\":\"text\",\"destination\":\"{{ran}}\",\"message\":\"{{base64}}\"}"
+						},
+						"url": {
+							"raw": "https://www.relatient.net/cgi-bin/genSampleCall.pl?login=demo&message=dddddd",
+							"protocol": "https",
+							"host": [
+								"www",
+								"relatient",
+								"net"
+							],
+							"path": [
+								"cgi-bin",
+								"genSampleCall.pl"
+							],
+							"query": [
+								{
+									"key": "login",
+									"value": "demo"
+								},
+								{
+									"key": "message",
+									"value": "dddddd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateNewPage :- Verify Error Messages",
+			"item": [
+				{
+					"name": "Verify the error message for Max length",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const userID = Math.floor((Math.random()*100 +1));",
+									"pm.globals.set(\"userID\", userID);",
+									"var CryptoJS = require(\"crypto-js\");",
+									"",
+									"// Generate random 16 bytes to use as IV",
+									"var IV = CryptoJS.lib.WordArray.random(16);",
+									"",
+									"var keyString = 'TyJk8w3KsvKEekRs'",
+									"// finds the SHA-256 hash for the keyString",
+									"var Key = CryptoJS.SHA256(keyString);",
+									"",
+									"function encrypt(data) {",
+									"    var val = CryptoJS.enc.Utf8.parse(JSON.stringify(data));",
+									"    var encrypted = CryptoJS.AES.encrypt(val, Key, { iv: IV }).toString();",
+									"    var b64 = CryptoJS.enc.Base64.parse(encrypted).toString(CryptoJS.enc.Hex);",
+									"    return b64;",
+									"}",
+									"",
+									"var data = {\"data\": \"how to send encrypted data\"};",
+									"",
+									"// Set local variables to postman",
+									"pm.variables.set(\"encrypted\", encrypt(data));",
+									"pm.variables.set(\"IV\", IV.toString());",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 3000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Body matches string\", function () {      ",
+									"    pm.expect(pm.response.text()).to.include(\"Name exceeds maximum length of 60 characters\"); });",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{encrypted}}\",\n    \"description\": \"{{encryted}}\",\n    \"userId\": 1,\n    \"status\": \"Draft\",\n    \"email\": 1,\n    \"text\": true,\n    \"voice\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify the error message for invalid cellphone number",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"< &name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {      ",
+									"    pm.expect(pm.response.text()).to.include(\"Phone number must be 10 - 11 digits\"); });",
+									"    pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 3000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"modality\":\"text\",\"destination\":\"111111111\",\"message\":\"{{base64}}\"}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/test",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify the error message for invalid email address",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const str = \"< &name\";",
+									"const base64 =btoa(str);",
+									"pm.globals.set(\"base64\", base64);",
+									"console.log(base64)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {      ",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid email address given\"); });",
+									"    pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 3000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+									"});",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "x-csrf-token",
+								"value": "{{x-csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"modality\":\"email\",\"destination\":\"varalika.agarwal\",\"subject\":\"{{base64}}\",\"preview\":\"{{base64}}\",\"message\":\"{{base64}}\"}"
+						},
+						"url": {
+							"raw": "{{URL}}/broadcasts/test",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"broadcasts",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://api-stage.relatient.net/broadcast/demo"
+		},
+		{
+			"key": "body_base64",
+			"value": "TXkgdGVzdDEyMw=="
+		},
+		{
+			"key": "{{image}}",
+			"value": "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZ\nGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwN\nDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVF\nRUVFRUVFRUVFRUVFRUX/wAARCAD6APoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEA\nAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh\nMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6\nQ0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZ\nmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx\n8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREA\nAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV\nYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp\nanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPE\nxcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDy\nu41G9vECXV3POinIWWRmAPryarUUUAFFFFABRRRQAUUUUAFFFFABRRThGx/hNADa\nKsJZyOMgU9bFiOfxoAqUVeaw2uEJ+bjjPPPSg2OM9S3pigCjRV+3sop9wMgR1PCk\n/e+nrTpNLdedjKP9oUWAzqKttYnGQT+IxUT20idRQBDRSlSOoNJQAUUUUAFFFFAB\nRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRVuCxeTBYEA9gOaAKqqWOFGasxWTOea\n2bXR9wG1Nv6mr66REo+ZT9c07DsYkVnGn8DMcdc06RSvygDnqB2FaVxapEp2yFSO\nx9P8Kqi2Yl1IKspyPXOOBg4oehJe0+zEturIAwf3/MVNd6U32aRMYJ4Df4/5zR9l\n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\nACiiigAooooAKKKKACiiigD/2Q==\n"
+		}
+	]
+}
